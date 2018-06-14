@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<head>
+<title>아이디 찾기</title>
+
+<!-- Bootstrap Core CSS -->
+<link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+<!-- Squad theme CSS -->
+<link href="../css/style.css" rel="stylesheet">
+<link href="../color/new.css" rel="stylesheet">
+
+</head>
+<body>
+	<div align=center
+		style="display: inline-block; position: absolute; align: center; left: 30%; right: 30%;">
+		<br> <br>
+		<H2 align="center">Find your ID</H2>
+		<HR>
+		<form method="post" action="searchId.jsp">
+			<table class="table table-striped table-bordered table-hover">
+				<tr>
+					<td>이름</td>
+					<td><input type="text" name="name"></td>
+				</tr>
+				<tr>
+					<td>학번</td>
+					<td><input type="text" name="student_id"></td>
+				</tr>
+				<tr>
+					<td>전화번호('-' 없이 입력해주세요.)</td>
+					<td><input type="text" name="phone" size="20"></td>
+				</tr>
+				<tr>
+					<td colspan="2" align=center><input type="submit" value="찾기"
+						class="btn"></td>
+				</tr>
+			</table>
+		</form>
+		<div align="center">
+			<BR> <a href="login.html"><h5>You wanna login?</h5> </a>
+		</div>
+	</div>
+</body>
+</html>

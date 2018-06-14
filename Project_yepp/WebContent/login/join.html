@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>회원가입</title>
+<!-- Bootstrap Core CSS -->
+<link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
+<!-- Squad theme CSS -->
+<link href="../css/style.css" rel="stylesheet">
+<link href="../color/new.css" rel="stylesheet">
+
+</head>
+<body>
+
+	<script language="JavaScript">
+		function isValid() {
+			if (joinform.user_id.value == "")
+				alert('ID를 입력해주세요')
+			else if (joinform.checkid.value == 0)
+				alert('ID 중복체크를 해주세요')
+
+				//passwd 유효성 검사
+			else if (joinform.passwd.value == ""
+					|| joinform.rpasswd.value == "")
+				alert('패스워드를 입력해주세요')
+			else if (joinform.passwd.value != joinform.rpasswd.value)
+				alert('패스워드가 같지 않습니다.')
+			else if (joinform.passwd.value.length < 6)
+				alert('패스워드는 6자리 이상으로 입력해주세요')
+			else if (joinform.passwd.value
+					.match(/[a-zA-Z0-9]*[^a-zA-Z0-9\n]+[a-zA-Z0-9]*$/))
+				alert("패스워드는 문자, 숫자, 특수문자의 조합으로 6~16자리로 입력해주세요.")
+			else if (joinform.passwd.value.indexOf(joinform.user_id.value) > -1)
+				alert("패스워드에 아이디를 사용할 수 없습니다.");
+
+			else if (joinform.name.value == "")
+				alert('이름을 입력해주세요')
+			else if (joinform.birth.value == ""
+					|| joinform.birth.value.length != 8)
+				alert('생년월일을 올바르게 입력해주세요')
+			else if (joinform.phone.value == ""
+					|| (joinform.phone.value.length != 11))
+				alert('핸드폰 번호 11자리를 입력해주세요')
+
+			else if (joinform.student_id.value == ""
+					|| (joinform.student_id.value.length != 8))
+				alert('학번 8자리를 입력해주세요')
+			else if (joinform.sex.value == "")
+				alert('성별을 선택해주세요')
+			else
+				document.joinform.submit()
+
+		}
+
+		function Check_id() {
+			var user_id = joinform.user_id.value
+			if (user_id == "")
+				alert('ID를 입력해주세요')
+
+			else if (!user_id
+					.match(/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/)) {
+				alert("아이디를 이메일 형식으로 입력해주세요.")
+				joinform.user_id.focus()
+				joinform.user_id.select()
+			} else
+				window.open("checkid.jsp?user_id=" + user_id,
+						"height=10,width=20")
+		}
+	</script>
+	<br>
+	<br>
+	<div style="display:inline-block;position:absolute; align:center; left:30%; right:30%;" >
+		<H2 align="center">JOIN US</H2>
+		<HR>
+		<div align="center">
+			<form name=joinform method=post action="join.jsp">
+				<table class="table table-bordered">
+					<tr>
+						<td>아이디</td>
+						<td><input type="text" name="user_id" size="20"> <input
+							type="hidden" name="checkid" value=0> <input
+							type="button" OnClick='Check_id()' value='ID 중복검사' class="btn"></td>
+					</tr>
+					<tr>
+						<td>비밀번호</td>
+						<td><input type="password" name="passwd" size="20"></td>
+					</tr>
+					<tr>
+						<td>비밀번호 확인</td>
+						<td><input type="password" name="rpasswd" size="20"></td>
+					</tr>
+					<tr>
+						<td>이름</td>
+						<td><input type="text" name="name" size="20"></td>
+					</tr>
+					<tr>
+						<td>생년월일<font color="#8E1E0C">(yyyymmdd)</font></td>
+						<td><input type="text" name="birth" size="20"></td>
+					</tr>
+					<tr>
+						<td>전화번호('-' 없이 입력해주세요.)</td>
+						<td><input type="text" name="phone" size="20"></td>
+					</tr>
+					<tr>
+						<td>학번</td>
+						<td><input type="text" name="student_id" size="20"></td>
+					</tr>
+					<tr>
+						<td>성별</td>
+						<td><input type="radio" name="sex" value="M">남 <input
+							type="radio" name="sex" value="F">여</td>
+					</tr>
+					<tr>
+						<td>프로필 사진</td>
+						<td><input type="file" name="image"></td>
+					</tr>
+
+				</table>
+				<input type="button" value="회원가입" onClick="javascript:isValid()"
+					class="btn"> <input type="reset" name="reset" value="취소"
+					onClick="history.go(-1)" class="btn">
+			</form>
+		</div>
+		<center>
+			<BR> <a href="login.html"><h5>You wanna login?</h5> </a>
+		</center>
+	</div>
+</body>
+</html>
