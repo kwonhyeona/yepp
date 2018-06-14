@@ -92,7 +92,7 @@ public class EditServlet extends HttpServlet {
 ```
 
 ```jsp
-// HTML 코드 안에 <% .. %> 태그를 사용해 스크립트 영역 추가
+<!--HTML 코드 안에 <% .. %> 태그를 사용해 스크립트 영역 추가-->
 <body id="page-top" data-spy="scroll" data-target=".navbar-custom"
 	onload="login()">
 	<%
