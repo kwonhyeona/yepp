@@ -6,7 +6,7 @@
 `성신여자대학교 IT학부의 프로그래밍실 좌석 예약 웹 서비스`입니다.
 
 ## 개발환경
-![image](./info_img/environment.jpg)
+![image](./info_img/environment.png)
 
 ## 개발인원
 * [권현아](https://github.com/kwonhyeona)
