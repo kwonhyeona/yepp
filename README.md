@@ -27,30 +27,30 @@
   DButil 클래스에 static 함수로 구현해놓고 실제 컨트롤러인 Servlet 파일에서 호출합니다.
 */
 public class ReservationDButil {
-  static Statement stmt = null;
-	static PreparedStatement pstmt = null;
+    static Statement stmt = null;
+    static PreparedStatement pstmt = null;
   
-  public static boolean insertReserDB(Connection con, Reservation reservation) {
-		String sql = "insert into reservation(user_id, seat_id, start_time, end_time, reser_date) values(?,?,?,?,?)";
+    public static boolean insertReserDB(Connection con, Reservation reservation) {
+	String sql = "insert into reservation(user_id, seat_id, start_time, end_time, reser_date) values(?,?,?,?,?)";
 
-		try {
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, reservation.getUser_id());
-			pstmt.setInt(2, reservation.getSeat_id());
-			pstmt.setString(3, reservation.getStart_time());
-			pstmt.setString(4, reservation.getEnd_time());
-			pstmt.setString(5, reservation.getReser_date());
-			pstmt.executeUpdate();
-			System.out.println("reservationDButil.java : db insert 성공");
-		} catch (Exception e) {
-			System.out.println("reservationDButil.java : db insert 실패 ");
-			e.printStackTrace();
-			System.out.println(e.getMessage());
-			return false;
-		}
-
-		return true;
+	try {
+    	    pstmt = con.prepareStatement(sql);
+	    pstmt.setString(1, reservation.getUser_id());
+	    pstmt.setInt(2, reservation.getSeat_id());
+	    pstmt.setString(3, reservation.getStart_time());
+	    pstmt.setString(4, reservation.getEnd_time());
+	    pstmt.setString(5, reservation.getReser_date());
+	    pstmt.executeUpdate();
+	    System.out.println("reservationDButil.java : db insert 성공");
+	} catch (Exception e) {
+	    System.out.println("reservationDButil.java : db insert 실패 ");
+	    e.printStackTrace();
+	    System.out.println(e.getMessage());
+	    return false;
 	}
+
+	return true;
+    }
 }
 
 
